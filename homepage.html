@@ -42,6 +42,12 @@
             box-sizing: border-box;
         }
 
+        .product img {
+            width: 100%; /* Responsive image */
+            max-height: 200px; /* Set max height for uniformity */
+            object-fit: cover; /* Maintains aspect ratio */
+        }
+
         .product button {
             background: #28a745;
             color: white;
@@ -96,16 +102,19 @@
     <div class="container">
         <h2>Available Fishing Gear</h2>
         <div class="product">
+            <img src="fishing-rod.jpg" alt="Fishing Rod">
             <h3>Fishing Rod</h3>
             <p>$49.99</p>
             <button onclick="addToCart('Fishing Rod')">Add to Cart</button>
         </div>
         <div class="product">
+            <img src="tackle-box.jpg" alt="Fishing Tackle Box">
             <h3>Fishing Tackle Box</h3>
             <p>$29.99</p>
             <button onclick="addToCart('Fishing Tackle Box')">Add to Cart</button>
         </div>
         <div class="product">
+            <img src="fishing-lures.jpg" alt="Fishing Lures">
             <h3>Fishing Lures</h3>
             <p>$15.99</p>
             <button onclick="addToCart('Fishing Lures')">Add to Cart</button>
@@ -117,16 +126,19 @@
     <div class="container">
         <h2>Available Camping Gear</h2>
         <div class="product">
+            <img src="camping-tent.jpg" alt="Camping Tent">
             <h3>Camping Tent</h3>
             <p>$89.99</p>
             <button onclick="addToCart('Camping Tent')">Add to Cart</button>
         </div>
         <div class="product">
+            <img src="portable-stove.jpg" alt="Portable Stove">
             <h3>Portable Stove</h3>
             <p>$49.99</p>
             <button onclick="addToCart('Portable Stove')">Add to Cart</button>
         </div>
         <div class="product">
+            <img src="sleeping-bag.jpg" alt="Sleeping Bag">
             <h3>Sleeping Bag</h3>
             <p>$34.99</p>
             <button onclick="addToCart('Sleeping Bag')">Add to Cart</button>

@@ -112,7 +112,7 @@
 <div id="home" class="page">
     <div class="container">
         <h2>Featured Products</h2>
-        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin. At our fishing and camping store, we are dedicated to providing you with top-quality gear and expert advice tailored to your unique needs. Our curated selection features only the best brands in the industry, ensuring that each item you purchase enhances your outdoor excursions. Our knowledgeable staff are passionate outdoor enthusiasts themselves, always ready to share tips and insights to elevate your fishing and camping trips. Plus, shopping with us means supporting a local business that reinvests in the community and shares your love for nature. With our competitive prices, exclusive deals, and commitment to customer satisfaction, you’ll discover that every visit to our store is not just a transaction, but a step towards unforgettable adventures. Don’t miss out on the chance to gear up with the best—come see us today and take your outdoor escapades to the next level!</p>
+        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin. At our fishing and camping store, we are dedicated to providing you with top-quality gear and expert advice tailored to your unique needs.</p>
     </div>
 </div>
 
@@ -257,23 +257,27 @@ function showPage(page) {
 }
 
 function addToCart(productName) {
-    if (!cart.includes(productName)) {
-        cart.push(productName);
-        updateCartDisplay();
-        const notification = document.getElementById('notification');
-        notification.textContent = productName + ' has been added to your cart!';
-        notification.style.display = 'block';
-        setTimeout(() => {
-            notification.style.display = 'none';
-        }, 3000);
+    const existingProduct = cart.find(item => item.name === productName);
+    if (existingProduct) {
+        existingProduct.quantity += 1;  // Increment quantity if item already exists
+    } else {
+        cart.push({ name: productName, quantity: 1 }); // Add new item to the cart
     }
+    updateCartDisplay();
+
+    const notification = document.getElementById('notification');
+    notification.textContent = productName + ' has been added to your cart!';
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 3000);
 }
 
 function updateCartDisplay() {
     const cartItemsContainer = document.getElementById('cartItems');
     cartItemsContainer.innerHTML = '';
     cart.forEach((item, index) => {
-        cartItemsContainer.innerHTML += `<div>${item} <button onclick="removeFromCart(${index})">Remove</button></div>`;
+        cartItemsContainer.innerHTML += `<div>${item.name} (x${item.quantity}) <button onclick="removeFromCart(${index})">Remove</button></div>`;
     });
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = 'Your cart is empty!';
@@ -281,7 +285,12 @@ function updateCartDisplay() {
 }
 
 function removeFromCart(index) {
-    cart.splice(index, 1);
+    const item = cart[index];
+    if (item.quantity > 1) {
+        item.quantity -= 1;  // Decrement quantity if more than 1
+    } else {
+        cart.splice(index, 1); // Remove item if quantity is 1
+    }
     updateCartDisplay();
 }
 

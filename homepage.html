@@ -75,6 +75,23 @@
             z-index: 1000;
         }
 
+        #cart {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            display: none; /* Hidden initially */
+            z-index: 1001;
+        }
+
+        .cart-items {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
         .hidden {
             display: none;
         }
@@ -88,13 +105,14 @@
         <a href="#" onclick="showPage('home')">Home</a>
         <a href="#" onclick="showPage('fishing')">Fishing Products</a>
         <a href="#" onclick="showPage('camping')">Camping Products</a>
+        <button onclick="toggleCart()">Cart</button>
     </nav>
 </header>
 
 <div id="home" class="page">
     <div class="container">
         <h2>Featured Products</h2>
-        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin. At our fishing and camping store, we are dedicated to providing you with top-quality gear and expert advice tailored to your unique needs. Our curated selection features only the best brands in the industry, ensuring that each item you purchase enhances your outdoor excursions. Our knowledgeable staff are passionate outdoor enthusiasts themselves, always ready to share tips and insights to elevate your fishing and camping trips. Plus, shopping with us means supporting a local business that reinvests in the community and shares your love for nature. With our competitive prices, exclusive deals, and commitment to customer satisfaction, you’ll discover that every visit to our store is not just a transaction, but a step towards unforgettable adventures. Don’t miss out on the chance to gear up with the best—come see us today and take your outdoor escapades to the next level!</p>
+        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin. At our fishing and camping store, we are dedicated to providing you with top-quality gear and expert advice tailored to your unique needs.</p>
     </div>
 </div>
 
@@ -118,6 +136,42 @@
             <h3>Fishing Lures</h3>
             <p>$15.99</p>
             <button onclick="addToCart('Fishing Lures')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image1.jpg" alt="Fishing Net">
+            <h3>Fishing Net</h3>
+            <p>$25.99</p>
+            <button onclick="addToCart('Fishing Net')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image2.jpg" alt="Fish Finder">
+            <h3>Fish Finder</h3>
+            <p>$199.99</p>
+            <button onclick="addToCart('Fish Finder')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image3.jpg" alt="Tackle Kit">
+            <h3>Tackle Kit</h3>
+            <p>$39.99</p>
+            <button onclick="addToCart('Tackle Kit')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image4.jpg" alt="Fishing Boots">
+            <h3>Fishing Boots</h3>
+            <p>$64.99</p>
+            <button onclick="addToCart('Fishing Boots')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image5.jpg" alt="Fishing Plier">
+            <h3>Fishing Plier</h3>
+            <p>$14.99</p>
+            <button onclick="addToCart('Fishing Plier')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image6.jpg" alt="Fishing Vest">
+            <h3>Fishing Vest</h3>
+            <p>$74.99</p>
+            <button onclick="addToCart('Fishing Vest')">Add to Cart</button>
         </div>
     </div>
 </div>
@@ -143,34 +197,102 @@
             <p>$34.99</p>
             <button onclick="addToCart('Sleeping Bag')">Add to Cart</button>
         </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image7.jpg" alt="Camping Chair">
+            <h3>Camping Chair</h3>
+            <p>$29.99</p>
+            <button onclick="addToCart('Camping Chair')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image8.jpg" alt="Camping Cooler">
+            <h3>Camping Cooler</h3>
+            <p>$39.99</p>
+            <button onclick="addToCart('Camping Cooler')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image9.jpg" alt="Lantern">
+            <h3>Lantern</h3>
+            <p>$19.99</p>
+            <button onclick="addToCart('Lantern')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image10.jpg" alt="First Aid Kit">
+            <h3>First Aid Kit</h3>
+            <p>$24.99</p>
+            <button onclick="addToCart('First Aid Kit')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image11.jpg" alt="Camping Mat">
+            <h3>Camping Mat</h3>
+            <p>$34.99</p>
+            <button onclick="addToCart('Camping Mat')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://example.com/path-to-your-image12.jpg" alt="Backpack">
+            <h3>Backpack</h3>
+            <p>$59.99</p>
+            <button onclick="addToCart('Backpack')">Add to Cart</button>
+        </div>
     </div>
 </div>
 
 <div id="notification"></div>
+<div id="cart">
+    <h3>Your Cart</h3>
+    <div class="cart-items" id="cartItems"></div>
+    <button onclick="clearCart()">Clear Cart</button>
+</div>
 
 <footer>
     <p>&copy; 2023 Fishing & Camping Store</p>
 </footer>
 
 <script>
+let cart = [];
+
 function showPage(page) {
-    // Hide all pages
     const pages = document.querySelectorAll('.page');
     pages.forEach(p => p.classList.add('hidden'));
-
-    // Show the selected page
     document.getElementById(page).classList.remove('hidden');
 }
 
 function addToCart(productName) {
-    const notification = document.getElementById('notification');
-    notification.textContent = productName + ' has been added to your cart!';
-    notification.style.display = 'block';
-    
-    // Hide the notification after 3 seconds
-    setTimeout(() => {
-        notification.style.display = 'none';
-    }, 3000);
+    if (!cart.includes(productName)) {
+        cart.push(productName);
+        updateCartDisplay();
+        const notification = document.getElementById('notification');
+        notification.textContent = productName + ' has been added to your cart!';
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 3000);
+    }
+}
+
+function updateCartDisplay() {
+    const cartItemsContainer = document.getElementById('cartItems');
+    cartItemsContainer.innerHTML = '';
+    cart.forEach((item, index) => {
+        cartItemsContainer.innerHTML += `<div>${item} <button onclick="removeFromCart(${index})">Remove</button></div>`;
+    });
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = 'Your cart is empty!';
+    }
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartDisplay();
+}
+
+function toggleCart() {
+    const cartModal = document.getElementById('cart');
+    cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
+}
+
+function clearCart() {
+    cart = [];
+    updateCartDisplay();
 }
 
 // Show the home page initially

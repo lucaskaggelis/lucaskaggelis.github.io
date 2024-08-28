@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -105,6 +106,8 @@
         <a href="#" onclick="showPage('home')">Home</a>
         <a href="#" onclick="showPage('fishing')">Fishing Products</a>
         <a href="#" onclick="showPage('camping')">Camping Products</a>
+        <a href="#" onclick="showPage('subscriptions')">Subscriptions</a>
+        <a href="#" onclick="showPage('merch')">Merchandise</a>
         <button onclick="toggleCart()">Cart</button>
     </nav>
 </header>
@@ -112,9 +115,7 @@
 <div id="home" class="page">
     <div class="container">
         <h2>Featured Products</h2>
-        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin. At our fishing and camping store, we are dedicated to providing you with top-quality gear and expert advice tailored to your unique needs. Our curated selection features only the best brands in the industry, ensuring that each item you purchase enhances your outdoor excursions. Our knowledgeable staff are passionate outdoor enthusiasts themselves, always ready to share tips and insights to elevate your fishing and camping trips. Plus, shopping with us means supporting a local business that reinvests in the community and shares your love for nature. With our competitive prices, exclusive deals, and commitment to customer satisfaction, you’ll discover that every visit to our store is not just a transaction, but a step towards unforgettable adventures. Don’t miss out on the chance to gear up with the best—come see us today and take your outdoor escapades to the next level!
-
-</p>
+        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin. At our fishing and camping store, we are dedicated to providing you with top-quality gear and expert advice tailored to your unique needs. Our curated selection features only the best brands in the industry, ensuring that each item you purchase enhances your outdoor excursions. Our knowledgeable staff are passionate outdoor enthusiasts themselves, always ready to share tips and insights to elevate your fishing and camping trips. Plus, shopping with us means supporting a local business that reinvests in the community and shares your love for nature. With our competitive prices, exclusive deals, and commitment to customer satisfaction, you’ll discover that every visit to our store is not just a transaction, but a step towards unforgettable adventures. Don’t miss out on the chance to gear up with the best—come see us today and take your outdoor escapades to the next level!</p>
     </div>
 </div>
 
@@ -133,48 +134,7 @@
             <p>$29.99</p>
             <button onclick="addToCart('Fishing Tackle Box')">Add to Cart</button>
         </div>
-        <div class="product">
-            <img src="https://www.tripsavvy.com/thmb/BhOa0vKmKI82Ir78vCHmPKbIK_U=/2121x1414/filters:fill(auto,1)/pike-lure-5c3821fac9e77c0001530bb6.jpg" alt="Fishing Lures">
-            <h3>Fishing Lures</h3>
-            <p>$15.99</p>
-            <button onclick="addToCart('Fishing Lures')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://beckmanfishingnets.com/wp-content/uploads/2018/01/BN3244S.jpg" alt="Fishing Net">
-            <h3>Fishing Net</h3>
-            <p>$25.99</p>
-            <button onclick="addToCart('Fishing Net')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://i5.walmartimages.com/asr/b1cd2b46-5ed5-4603-bb3f-f512403a48c8_1.d1049a87f1a762ce5aa017d3e3f97be6.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff" alt="Fish Finder">
-            <h3>Fish Finder</h3>
-            <p>$199.99</p>
-            <button onclick="addToCart('Fish Finder')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://cdn.shopify.com/s/files/1/0631/3538/3807/products/rite-angler-complete-tackle-kit-2_1024x1024.jpg?v=1646333981" alt="Tackle Kit">
-            <h3>Tackle Kit</h3>
-            <p>$39.99</p>
-            <button onclick="addToCart('Tackle Kit')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://th.bing.com/th/id/OIP.h1hoksAKki_SS0vA_EMpdAAAAA?rs=1&pid=ImgDetMain" alt="Fishing Boots">
-            <h3>Fishing Boots</h3>
-            <p>$64.99</p>
-            <button onclick="addToCart('Fishing Boots')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://th.bing.com/th/id/OIP.hiT-COxyJcfl8gTEb8S7LgHaHa?rs=1&pid=ImgDetMain" alt="Fishing Plier">
-            <h3>Fishing Plier</h3>
-            <p>$14.99</p>
-            <button onclick="addToCart('Fishing Plier')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://th.bing.com/th/id/OIP.-neK80GJoNWmEmMkly6gsAHaHa?rs=1&pid=ImgDetMain" alt="Fishing Vest">
-            <h3>Fishing Vest</h3>
-            <p>$74.99</p>
-            <button onclick="addToCart('Fishing Vest')">Add to Cart</button>
-        </div>
+        <!-- Add more fishing products as needed -->
     </div>
 </div>
 
@@ -193,48 +153,44 @@
             <p>$49.99</p>
             <button onclick="addToCart('Portable Stove')">Add to Cart</button>
         </div>
+        <!-- Add more camping products as needed -->
+    </div>
+</div>
+
+<div id="subscriptions" class="page hidden">
+    <div class="container">
+        <h2>Join Our Subscription Service!</h2>
+        <p>Sign up for our subscriptions and enjoy a 10% discount on all items!</p>
+        <form>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <input type="submit" value="Subscribe Now">
+        </form>
+        <h3>Subscription Benefits:</h3>
+        <ul>
+            <li>10% off all items</li>
+            <li>Exclusive access to new products</li>
+            <li>Monthly newsletters with special offers</li>
+        </ul>
+    </div>
+</div>
+
+<div id="merch" class="page hidden">
+    <div class="container">
+        <h2>Our Merchandise</h2>
         <div class="product">
-            <img src="https://th.bing.com/th/id/OIP.LyaE_iwxVuaeNWmQbVOOeAHaFj?rs=1&pid=ImgDetMain" alt="Sleeping Bag">
-            <h3>Sleeping Bag</h3>
-            <p>$34.99</p>
-            <button onclick="addToCart('Sleeping Bag')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://cdn.shopify.com/s/files/1/0052/7918/7015/products/woods-siesta-folding-reclining-padded-camping-chair-tan-4_2048x2048@2x.jpg?v=1588781300" alt="Camping Chair">
-            <h3>Camping Chair</h3>
-            <p>$29.99</p>
-            <button onclick="addToCart('Camping Chair')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://media.prod.bunnings.com.au/api/public/content/7078e85b25924163b4346062d71bbe93?v=4c591f9e" alt="Esky">
-            <h3>Esky</h3>
-            <p>$39.99</p>
-            <button onclick="addToCart('Esky')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://i5.walmartimages.com/asr/e1e5844b-6ded-4984-af48-1d538397d45e_1.8baad860b2e00c853e1dac33c366564f.jpeg" alt="Lantern">
-            <h3>Lantern</h3>
+            <img src="https://via.placeholder.com/200" alt="T-shirt">
+            <h3>Fishing & Camping T-Shirt</h3>
             <p>$19.99</p>
-            <button onclick="addToCart('Lantern')">Add to Cart</button>
+            <button onclick="addToCart('Fishing & Camping T-Shirt')">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="https://i5.walmartimages.com/asr/82b762a9-f25b-4612-bdef-bec964be189e_1.ebc1d451728e91aed163ac8f2e3d1b54.jpeg" alt="First Aid Kit">
-            <h3>First Aid Kit</h3>
-            <p>$24.99</p>
-            <button onclick="addToCart('First Aid Kit')">Add to Cart</button>
+            <img src="https://via.placeholder.com/200" alt="Cap">
+            <h3>Outdoor Cap</h3>
+            <p>$14.99</p>
+            <button onclick="addToCart('Outdoor Cap')">Add to Cart</button>
         </div>
-        <div class="product">
-            <img src="https://th.bing.com/th/id/OIP.5oHQbe2KH3kgGZS838bmUAAAAA?rs=1&pid=ImgDetMain" alt="Camping Mat">
-            <h3>Camping Mat</h3>
-            <p>$34.99</p>
-            <button onclick="addToCart('Camping Mat')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://th.bing.com/th/id/OIP.dfxWsiAGoGkkvqryBlxyhwAAAA?rs=1&pid=ImgDetMain"Backpack">
-            <h3>Backpack</h3>
-            <p>$59.99</p>
-            <button onclick="addToCart('Backpack')">Add to Cart</button>
-        </div>
+        <!-- Add more merchandise products as needed -->
     </div>
 </div>
 

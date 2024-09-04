@@ -83,10 +83,9 @@
             background-color: white;
             border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 15px;  /* Increased padding for larger cart */
+            padding: 10px;
             display: none; /* Hidden initially */
             z-index: 1001;
-            width: 300px;  /* Increased width for larger cart */
         }
 
         .cart-items {
@@ -116,7 +115,7 @@
 <div id="home" class="page">
     <div class="container">
         <h2>Featured Products</h2>
-        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin...</p>
+        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin. At our fishing and camping store, we are dedicated to providing you with top-quality gear and expert advice tailored to your unique needs. Our curated selection features only the best brands in the industry, ensuring that each item you purchase enhances your outdoor excursions. Our knowledgeable staff are passionate outdoor enthusiasts themselves, always ready to share tips and insights to elevate your fishing and camping trips. Plus, shopping with us means supporting a local business that reinvests in the community and shares your love for nature. With our competitive prices, exclusive deals, and commitment to customer satisfaction, you’ll discover that every visit to our store is not just a transaction, but a step towards unforgettable adventures. Don’t miss out on the chance to gear up with the best—come see us today and take your outdoor escapades to the next level!</p>
     </div>
 </div>
 
@@ -127,9 +126,56 @@
             <img src="https://fishingbooker.com/blog/media/rsz_rod_closeup.jpg" alt="Fishing Rod">
             <h3>Fishing Rod</h3>
             <p>$49.99</p>
-            <button onclick="addToCart('Fishing Rod', 49.99)">Add to Cart</button>
+            <button onclick="addToCart('Fishing Rod')">Add to Cart</button>
         </div>
-        <!-- [Other fishing products remain unchanged] -->
+        <div class="product">
+            <img src="https://flannelfishermen.com/wp-content/uploads/2016/04/tackle-box-c.jpg" alt="Fishing Tackle Box">
+            <h3>Fishing Tackle Box</h3>
+            <p>$29.99</p>
+            <button onclick="addToCart('Fishing Tackle Box')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://th.bing.com/th/id/OIP.gFwtShSK6kafwLAxI1SWRQHaGY?rs=1&pid=ImgDetMain" alt="Fishing Line">
+            <h3>Fishing Line</h3>
+            <p>$14.99</p>
+            <button onclick="addToCart('Fishing Line')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://th.bing.com/th/id/OIP.SF95XaDFvrz9my6GpP-mRgHaHa?rs=1&pid=ImgDetMain" alt="Fishing Bait">
+            <h3>Fishing Bait</h3>
+            <p>$5.99</p>
+            <button onclick="addToCart('Fishing Bait')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://th.bing.com/th/id/R.2105a06daf737117ec1eb537870ca04f?rik=Vk%2bl1oCRbkZiNg&riu=http%3a%2f%2fimage.sportsmansguide.com%2fadimgs%2fl%2f1%2f184222_ts.jpg&ehk=5v8%2bbPVcdkPjRjBNhyxb35V6sDI9gzJog60%2bYZ4pLg8%3d&risl=&pid=ImgRaw&r=0" alt="Fishing Net">
+            <h3>Fishing Net</h3>
+            <p>$24.99</p>
+            <button onclick="addToCart('Fishing Net')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://db1736767dbd5e7094bb-d61bbc5d0b342a54145a236e2d5d1ebf.ssl.cf4.rackcdn.com/Product-800x800/ab931b35-198a-4635-b1ce-769ff975dc69.jpg"Fishing Cooler">
+            <h3>Fishing Cooler</h3>
+            <p>$69.99</p>
+            <button onclick="addToCart('Fishing Cooler')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://www.happinesswithout.com/wp-content/uploads/2020/11/1103286_alt03-1536x933.jpg" alt="Fishing Kayak">
+            <h3>Fishing Kayak</h3>
+            <p>$799.99</p>
+            <button onclick="addToCart('Fishing Kayak')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://flannelfishermen.com/wp-content/uploads/2016/04/Zitrades-Aluminum-Fishing-Pliers-wbg.jpg" alt="Fishing Pliers">
+            <h3>Fishing Pliers</h3>
+            <p>$19.99</p>
+            <button onclick="addToCart('Fishing Pliers')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/A1XMT0u2SML._AC_SL1500_.jpg" alt="Fishing Tackle Bag">
+            <h3>Fishing Tackle Bag</h3>
+            <p>$39.99</p>
+            <button onclick="addToCart('Fishing Tackle Bag')">Add to Cart</button>
+        </div>
     </div>
 </div>
 
@@ -140,9 +186,56 @@
             <img src="https://i5.walmartimages.com/asr/7982f9a6-96aa-4467-b258-649f460b7c34_1.ead2657fef38ac3afd893f7ec7c20746.jpeg" alt="Camping Tent">
             <h3>Camping Tent</h3>
             <p>$89.99</p>
-            <button onclick="addToCart('Camping Tent', 89.99)">Add to Cart</button>
+            <button onclick="addToCart('Camping Tent')">Add to Cart</button>
         </div>
-        <!-- [Other camping products remain unchanged] -->
+        <div class="product">
+            <img src="https://cdnimg.webstaurantstore.com/images/products/xxl/473537/1772244.jpg" alt="Portable Stove">
+            <h3>Portable Stove</h3>
+            <p>$49.99</p>
+            <button onclick="addToCart('Portable Stove')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://dl.dropboxusercontent.com/s/bpr9cd1fwvpgj3y/SKY1465LRG-1.jpg" alt="Sleeping Bag">
+            <h3>Sleeping Bag</h3>
+            <p>$39.99</p>
+            <button onclick="addToCart('Sleeping Bag')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i5.walmartimages.com/asr/9a1caadc-d39c-4023-aafc-c1c4a97377f4_1.e5f81b19e82471105c2338fc59b43231.jpeg" alt="Camping Lantern">
+            <h3>Camping Lantern</h3>
+            <p>$29.99</p>
+            <button onclick="addToCart('Camping Lantern')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://www.thecrazyoutdoormama.com/wp-content/uploads/2023/01/chuck-box-camp-kitchen-1-1.png" alt="Camping Kitchen Set">
+            <h3>Camping Kitchen Set</h3>
+            <p>$59.99</p>
+            <button onclick="addToCart('Camping Kitchen Set')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://th.bing.com/th/id/OIP.1o_L9KUDa__Iwdw7a8EFcAHaHa?rs=1&pid=ImgDetMain" alt="Hiking Backpack">
+            <h3>Hiking Backpack</h3>
+            <p>$89.99</p>
+            <button onclick="addToCart('Hiking Backpack')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i5.walmartimages.com/asr/74c4df64-b3a8-4836-a4aa-dd2770464242.870958c1f6cfac7cc9c51761c5762c95.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff" alt="Inflatable Sleeping Pad">
+            <h3>Inflatable Sleeping Pad</h3>
+            <p>$49.99</p>
+            <button onclick="addToCart('Inflatable Sleeping Pad')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71XYfVDfncL._AC_SL1500_.jpg" alt="Camping Dish Drying Rack">
+            <h3>Camping Dish Drying Rack</h3>
+            <p>$15.99</p>
+            <button onclick="addToCart('Camping Dish Drying Rack')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i5.walmartimages.com/asr/096b3ad0-26da-4adf-8629-f88c6d8cb961.7761d3f782e2a5e8c4433769fe0dcefe.jpeg" alt="Portable Hammock">
+            <h3>Portable Hammock</h3>
+            <p>$39.99</p>
+            <button onclick="addToCart('Portable Hammock')">Add to Cart</button>
+        </div>
     </div>
 </div>
 
@@ -171,33 +264,15 @@
             <img src="https://via.placeholder.com/200" alt="T-shirt">
             <h3>Fishing & Camping T-Shirt</h3>
             <p>$19.99</p>
-            <button onclick="addToCart('Fishing & Camping T-Shirt', 19.99)">Add to Cart</button>
+            <button onclick="addToCart('Fishing & Camping T-Shirt')">Add to Cart</button>
         </div>
         <div class="product">
             <img src="https://via.placeholder.com/200" alt="Cap">
             <h3>Outdoor Cap</h3>
             <p>$14.99</p>
-            <button onclick="addToCart('Outdoor Cap', 14.99)">Add to Cart</button>
+            <button onclick="addToCart('Outdoor Cap')">Add to Cart</button>
         </div>
-        <!-- Additional merchandise items -->
-        <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Hoodie">
-            <h3>Fishing & Camping Hoodie</h3>
-            <p>$34.99</p>
-            <button onclick="addToCart('Fishing & Camping Hoodie', 34.99)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Water Bottle">
-            <h3>Stainless Steel Water Bottle</h3>
-            <p>$24.99</p>
-            <button onclick="addToCart('Stainless Steel Water Bottle', 24.99)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Camping Mug">
-            <h3>Camping Mug</h3>
-            <p>$12.99</p>
-            <button onclick="addToCart('Camping Mug', 12.99)">Add to Cart</button>
-        </div>
+        <!-- Add more merchandise products as needed -->
     </div>
 </div>
 
@@ -205,12 +280,11 @@
 <div id="cart">
     <h3>Your Cart</h3>
     <div class="cart-items" id="cartItems"></div>
-    <div id="cartTotal">Total: $0.00</div> <!-- Total amount display -->
     <button onclick="clearCart()">Clear Cart</button>
 </div>
 
 <footer>
-    <p>&copy; 2023 Fishing & Camping Store</p>
+    <p>© 2023 Fishing & Camping Store</p>
 </footer>
 
 <script>
@@ -222,12 +296,12 @@ function showPage(page) {
     document.getElementById(page).classList.remove('hidden');
 }
 
-function addToCart(productName, price) {
+function addToCart(productName) {
     const existingProduct = cart.find(item => item.name === productName);
     if (existingProduct) {
         existingProduct.quantity += 1;  // Increment quantity if item already exists
     } else {
-        cart.push({ name: productName, quantity: 1, price }); // Add new item to the cart with price
+        cart.push({ name: productName, quantity: 1 }); // Add new item to the cart
     }
     updateCartDisplay();
 
@@ -242,17 +316,11 @@ function addToCart(productName, price) {
 function updateCartDisplay() {
     const cartItemsContainer = document.getElementById('cartItems');
     cartItemsContainer.innerHTML = '';
-    let total = 0; // Initialize total to 0
     cart.forEach((item, index) => {
         cartItemsContainer.innerHTML += `<div>${item.name} (x${item.quantity}) <button onclick="removeFromCart(${index})">Remove</button></div>`;
-        total += item.price * item.quantity; // Calculate total
     });
-    
-    document.getElementById('cartTotal').innerText = 'Total: $' + total.toFixed(2); // Update total display
-
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = 'Your cart is empty!';
-        document.getElementById('cartTotal').innerText = 'Total: $0.00'; // Reset total if cart is empty
     }
 }
 

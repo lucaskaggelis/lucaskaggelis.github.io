@@ -44,9 +44,9 @@
         }
 
         .product img {
-            width: 100%; /* Responsive image */
-            max-height: 290px; /* Set max height for uniformity */
-            object-fit: cover; /* Maintains aspect ratio */
+            width: 100%;
+            max-height: 290px;
+            object-fit: cover;
         }
 
         .product button {
@@ -72,7 +72,7 @@
             color: white;
             padding: 10px;
             border-radius: 5px;
-            display: none; /* Hidden initially */
+            display: none;
             z-index: 1000;
         }
 
@@ -84,7 +84,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 10px;
-            display: none; /* Hidden initially */
+            display: none;
             z-index: 1001;
         }
 
@@ -115,7 +115,7 @@
 <div id="home" class="page">
     <div class="container">
         <h2>Featured Products</h2>
-        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin. At our fishing and camping store, we are dedicated to providing you with top-quality gear and expert advice tailored to your unique needs. Our curated selection features only the best brands in the industry, ensuring that each item you purchase enhances your outdoor excursions. Our knowledgeable staff are passionate outdoor enthusiasts themselves, always ready to share tips and insights to elevate your fishing and camping trips. Plus, shopping with us means supporting a local business that reinvests in the community and shares your love for nature. With our competitive prices, exclusive deals, and commitment to customer satisfaction, you’ll discover that every visit to our store is not just a transaction, but a step towards unforgettable adventures. Don’t miss out on the chance to gear up with the best—come see us today and take your outdoor escapades to the next level!</p>
+        <p>If you’re seeking the ultimate fishing and camping experience, look no further than our store, where your outdoor adventures begin.</p>
     </div>
 </div>
 
@@ -153,7 +153,7 @@
             <button onclick="addToCart('Fishing Net')">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="https://db1736767dbd5e7094bb-d61bbc5d0b342a54145a236e2d5d1ebf.ssl.cf4.rackcdn.com/Product-800x800/ab931b35-198a-4635-b1ce-769ff975dc69.jpg"Fishing Cooler">
+            <img src="https://db1736767dbd5e7094bb-d61bbc5d0b342a54145a236e2d5d1ebf.ssl.cf4.rackcdn.com/Product-800x800/ab931b35-198a-4635-b1ce-769ff975dc69.jpg" alt="Fishing Cooler">
             <h3>Fishing Cooler</h3>
             <p>$69.99</p>
             <button onclick="addToCart('Fishing Cooler')">Add to Cart</button>
@@ -243,7 +243,7 @@
     <div class="container">
         <h2>Join Our Subscription Service!</h2>
         <p>Sign up for our subscriptions and enjoy a 10% discount on all items!</p>
-        <form>
+        <form onsubmit="subscribe(event)">
             <label for="email">Email:</label>
             <input type="email" id="email" required>
             <input type="submit" value="Subscribe Now">
@@ -254,6 +254,10 @@
             <li>Exclusive access to new products</li>
             <li>Monthly newsletters with special offers</li>
         </ul>
+        <button onclick="showSubscribers()">Show Subscribers</button>
+        <h4>Subscribers:</h4>
+        <ul id="subscribersList"></ul>
+        <h4>Total Amount in Cart: $<span id="totalAmount">0.00</span></h4>
     </div>
 </div>
 
@@ -289,22 +293,25 @@
 
 <script>
 let cart = [];
+let subscribers = [];
 
 function showPage(page) {
     const pages = document.querySelectorAll('.page');
     pages.forEach(p => p.classList.add('hidden'));
     document.getElementById(page).classList.remove('hidden');
+    if (page === 'subscriptions') {
+        updateTotalAmount();
+    }
 }
 
 function addToCart(productName) {
     const existingProduct = cart.find(item => item.name === productName);
     if (existingProduct) {
-        existingProduct.quantity += 1;  // Increment quantity if item already exists
+        existingProduct.quantity += 1;
     } else {
-        cart.push({ name: productName, quantity: 1 }); // Add new item to the cart
+        cart.push({ name: productName, quantity: 1 });
     }
     updateCartDisplay();
-
     const notification = document.getElementById('notification');
     notification.textContent = productName + ' has been added to your cart!';
     notification.style.display = 'block';
@@ -322,14 +329,15 @@ function updateCartDisplay() {
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = 'Your cart is empty!';
     }
+    updateTotalAmount();
 }
 
 function removeFromCart(index) {
     const item = cart[index];
     if (item.quantity > 1) {
-        item.quantity -= 1;  // Decrement quantity if more than 1
+        item.quantity -= 1;
     } else {
-        cart.splice(index, 1); // Remove item if quantity is 1
+        cart.splice(index, 1);
     }
     updateCartDisplay();
 }
@@ -342,6 +350,53 @@ function toggleCart() {
 function clearCart() {
     cart = [];
     updateCartDisplay();
+}
+
+function subscribe(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    subscribers.push(email);
+    document.getElementById('email').value = '';
+    alert('Subscribed successfully!');
+}
+
+function showSubscribers() {
+    const subscribersList = document.getElementById('subscribersList');
+    subscribersList.innerHTML = '';
+    subscribers.forEach(email => {
+        const li = document.createElement('li');
+        li.textContent = email;
+        subscribersList.appendChild(li);
+    });
+}
+
+function updateTotalAmount() {
+    const totalAmount = cart.reduce((total, item) => {
+        const productPrices = {
+            'Fishing Rod': 49.99,
+            'Fishing Tackle Box': 29.99,
+            'Fishing Line': 14.99,
+            'Fishing Bait': 5.99,
+            'Fishing Net': 24.99,
+            'Fishing Cooler': 69.99,
+            'Fishing Kayak': 799.99,
+            'Fishing Pliers': 19.99,
+            'Fishing Tackle Bag': 39.99,
+            'Camping Tent': 89.99,
+            'Portable Stove': 49.99,
+            'Sleeping Bag': 39.99,
+            'Camping Lantern': 29.99,
+            'Camping Kitchen Set': 59.99,
+            'Hiking Backpack': 89.99,
+            'Inflatable Sleeping Pad': 49.99,
+            'Camping Dish Drying Rack': 15.99,
+            'Portable Hammock': 39.99,
+            'Fishing & Camping T-Shirt': 19.99,
+            'Outdoor Cap': 14.99,
+        };
+        return total + (productPrices[item.name] || 0) * item.quantity;
+    }, 0);
+    document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
 }
 
 // Show the home page initially

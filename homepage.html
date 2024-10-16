@@ -45,7 +45,8 @@
 
         .product img {
             width: 100%; /* Scale to fit container width */
-            height: 150px; /* Set a fixed height for uniformity */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 300px; /* Set maximum height for uniformity */
             object-fit: contain; /* Maintain aspect ratio without cropping */
         }
 
@@ -99,6 +100,12 @@
 
         .cart-total {
             font-weight: bold;
+        }
+
+        .checkout-container {
+            display: none;
+            border: 1px solid #ddd;
+            padding: 10px;
         }
     </style>
 </head>
@@ -258,9 +265,6 @@
             <li>Exclusive access to new products</li>
             <li>Monthly newsletters with special offers</li>
         </ul>
-        <button onclick="showSubscribers()">Show Subscribers</button>
-        <h4>Subscribers:</h4>
-        <ul id="subscribersList"></ul>
     </div>
 </div>
 
@@ -279,7 +283,6 @@
             <p>$14.99</p>
             <button onclick="addToCart('Outdoor Cap')">Add to Cart</button>
         </div>
-        <!-- Add more merchandise products as needed -->
     </div>
 </div>
 
@@ -288,7 +291,17 @@
     <h3>Your Cart</h3>
     <div class="cart-items" id="cartItems"></div>
     <h4 class="cart-total">Total Amount: $<span id="totalAmount">0.00</span></h4>
-    <button onclick="clearCart()">Clear Cart</button>
+    <button onclick="checkout()">Checkout</button>
+    <div class="checkout-container" id="checkoutContainer">
+        <h4>Checkout</h4>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" required><br>
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" required> <br>
+        <label for="emailCheckout">Email:</label><br>
+        <input type="email" id="emailCheckout" required><br>
+        <button onclick="completeCheckout()">Pay Now</button>
+    </div>
 </div>
 
 <footer>
@@ -372,6 +385,27 @@ function toggleCart() {
     cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
 }
 
+function checkout() {
+    const checkoutContainer = document.getElementById('checkoutContainer');
+    checkoutContainer.style.display = 'block';
+}
+
+function completeCheckout() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('emailCheckout').value;
+
+    if (!name || !phone || !email) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    alert(`Thank you for your purchase, ${name}! Your order will be processed.`);
+    cart = []; // Clear cart on successful checkout
+    updateCartDisplay();
+    document.getElementById('checkoutContainer').style.display = 'none'; // Hide checkout form
+}
+
 function clearCart() {
     cart = [];
     updateCartDisplay();
@@ -383,16 +417,6 @@ function subscribe(event) {
     subscribers.push(email);
     document.getElementById('email').value = '';
     alert('Subscribed successfully!');
-}
-
-function showSubscribers() {
-    const subscribersList = document.getElementById('subscribersList');
-    subscribersList.innerHTML = '';
-    subscribers.forEach(email => {
-        const li = document.createElement('li');
-        li.textContent = email;
-        subscribersList.appendChild(li);
-    });
 }
 
 function updateTotalAmount() {

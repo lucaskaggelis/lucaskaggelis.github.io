@@ -56,8 +56,9 @@
             object-fit: contain; 
         }
 
-        .product button {
-            background: #28a745;
+        .product button, 
+        .cart button {
+            background: #007BFF;
             color: white;
             border: none;
             padding: 10px;
@@ -66,8 +67,9 @@
             transition: background 0.3s;
         }
 
-        .product button:hover {
-            background: #218838;
+        .product button:hover, 
+        .cart button:hover {
+            background: #0056b3;
         }
 
         footer {
@@ -148,6 +150,16 @@
 
         .checkout-container button:hover {
             background: #0056b3;
+        }
+        
+        .clear-cart-button {
+            background: #dc3545; /* Red color */
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .clear-cart-button:hover {
+            background: #c82333; /* Darker red color on hover */
         }
     </style>
 </head>
@@ -334,6 +346,7 @@
     <div class="cart-items" id="cartItems"></div>
     <h4 class="cart-total">Total Amount: $<span id="totalAmount">0.00</span></h4>
     <button onclick="checkout()">Checkout</button>
+    <button class="clear-cart-button" onclick="clearCart()">Clear Cart</button>
     <div class="checkout-container" id="checkoutContainer">
         <h4>Checkout</h4>
         <label for="name">Name:</label><br>

@@ -182,6 +182,17 @@
         .checkout-button:hover {
             background: #0056b3;
         }
+
+        .centered-text {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .subscription-link {
+            color: #007BFF;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -326,10 +337,15 @@
 </div>
 
 <div id="subscriptions" class="page hidden">
-    <div class="container">
+    <div class="container centered-text">
         <h2>Join Our Subscription Service!</h2>
-        <p>Sign up for our subscriptions and enjoy a 10% discount on all products!</p>
+        <p>Before you buy, you can subscribe and get a <strong>10% discount on all products!</strong></p>
+        <p class="subscription-link" onclick="showPage('subscriptions')">Click here to learn more!</p>
         <form onsubmit="subscribe(event)">
+            <label for="sub-name">Name:</label>
+            <input type="text" id="sub-name" required>
+            <label for="sub-phone">Phone:</label>
+            <input type="tel" id="sub-phone" required>
             <label for="email">Email:</label>
             <input type="email" id="email" required>
             <input type="submit" value="Subscribe Now">
@@ -377,6 +393,8 @@
         <label for="emailCheckout">Email:</label><br>
         <input type="email" id="emailCheckout" required><br>
         <button class="checkout-button" onclick="completeCheckout()">Pay Now</button>
+        <p class="centered-text">Before you buy, you can subscribe and get a <strong>10% discount on all products!</strong></p>
+        <p class="subscription-link centered-text" onclick="showPage('subscriptions')">Click here to subscribe!</p>
     </div>
 </div>
 
@@ -489,8 +507,12 @@ function clearCart() {
 
 function subscribe(event) {
     event.preventDefault();
+    const name = document.getElementById('sub-name').value;
+    const phone = document.getElementById('sub-phone').value;
     const email = document.getElementById('email').value;
-    subscribers.push(email);
+    subscribers.push({ name: name, phone: phone, email: email });
+    document.getElementById('sub-name').value = '';
+    document.getElementById('sub-phone').value = '';
     document.getElementById('email').value = '';
     alert('Subscribed successfully!');
 }

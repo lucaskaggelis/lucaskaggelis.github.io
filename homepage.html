@@ -151,15 +151,36 @@
         .checkout-container button:hover {
             background: #0056b3;
         }
-        
+
         .clear-cart-button {
-            background: #007BFF; /* Make clear cart button same as pay now button */
+            background: #dc3545; /* Red color */
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
             margin-top: 10px;
             width: 100%;
         }
 
         .clear-cart-button:hover {
-            background: #0056b3; /* Make hover state consistent */
+            background: #c82333; /* Darker red color on hover */
+        }
+
+        .checkout-button {
+            background: #007BFF; /* Keep the same blue color */
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .checkout-button:hover {
+            background: #0056b3;
         }
     </style>
 </head>
@@ -345,7 +366,7 @@
     <h3>Your Cart</h3>
     <div class="cart-items" id="cartItems"></div>
     <h4 class="cart-total">Total Amount: $<span id="totalAmount">0.00</span></h4>
-    <button onclick="checkout()">Checkout</button>
+    <button class="checkout-button" onclick="toggleCheckout()">Checkout</button>
     <button class="clear-cart-button" onclick="clearCart()">Clear Cart</button>
     <div class="checkout-container" id="checkoutContainer">
         <h4>Checkout</h4>
@@ -355,7 +376,7 @@
         <input type="tel" id="phone" required> <br>
         <label for="emailCheckout">Email:</label><br>
         <input type="email" id="emailCheckout" required><br>
-        <button onclick="completeCheckout()">Pay Now</button>
+        <button class="checkout-button" onclick="completeCheckout()">Pay Now</button>
     </div>
 </div>
 
@@ -440,9 +461,9 @@ function toggleCart() {
     cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
 }
 
-function checkout() {
+function toggleCheckout() {
     const checkoutContainer = document.getElementById('checkoutContainer');
-    checkoutContainer.style.display = 'block'; // Show checkout form without clearing the cart
+    checkoutContainer.style.display = checkoutContainer.style.display === 'block' ? 'none' : 'block';
 }
 
 function completeCheckout() {

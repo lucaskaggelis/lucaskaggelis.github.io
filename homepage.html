@@ -153,13 +153,13 @@
         }
         
         .clear-cart-button {
-            background: #dc3545; /* Red color */
+            background: #007BFF; /* Make clear cart button same as pay now button */
             margin-top: 10px;
             width: 100%;
         }
 
         .clear-cart-button:hover {
-            background: #c82333; /* Darker red color on hover */
+            background: #0056b3; /* Make hover state consistent */
         }
     </style>
 </head>
@@ -442,7 +442,7 @@ function toggleCart() {
 
 function checkout() {
     const checkoutContainer = document.getElementById('checkoutContainer');
-    checkoutContainer.style.display = 'block';
+    checkoutContainer.style.display = 'block'; // Show checkout form without clearing the cart
 }
 
 function completeCheckout() {

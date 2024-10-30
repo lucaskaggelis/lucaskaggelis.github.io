@@ -206,10 +206,11 @@
         }
 
         .subscription-form input[type="submit"] {
-            width: 60%; /* 80% reduced by 0.25 times */
+            width: 60%; /* 60% width for the submit button */
             height: auto; /* Normal height */
             padding: 7.5px; /* Adjusted padding */
             font-size: 0.75em; /* Font size adjustment */
+            transition: width 0.3s, height 0.3s; /* Smooth transition */
         }
     </style>
 </head>
@@ -365,7 +366,7 @@
             <input type="tel" id="sub-phone" required>
             <label for="email">Email:</label>
             <input type="email" id="email" required>
-            <input type="submit" value="Subscribe Now">
+            <input type="submit" value="Subscribe Now" id="subscribeButton">
         </form>
         <h3>Subscription Benefits:</h3>
         <ul>
@@ -532,6 +533,11 @@ function subscribe(event) {
     document.getElementById('sub-phone').value = '';
     document.getElementById('email').value = '';
     alert('Subscribed successfully!');
+    
+    // Reduce the "Subscribe Now" button text
+    const button = document.getElementById('subscribeButton');
+    button.style.width = '40%'; // Decrease width
+    button.style.height = '30px'; // Decrease height
 }
 
 function updateTotalAmount() {

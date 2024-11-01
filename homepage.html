@@ -57,18 +57,25 @@
         }
 
         .product button, 
-        .cart button {
+        .cart button, 
+        .checkout-container button, 
+        .clear-cart-button,
+        .checkout-button {
             background: #007BFF;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 8px 12px; /* Adjusted button padding */
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;
+            width: auto; /* Set the button width to auto if you want it to fit content */
         }
 
         .product button:hover, 
-        .cart button:hover {
+        .cart button:hover, 
+        .checkout-container button:hover, 
+        .clear-cart-button:hover,
+        .checkout-button:hover {
             background: #0056b3;
         }
 
@@ -137,26 +144,11 @@
             border: 1px solid #ccc;
         }
 
-        .checkout-container button {
-            background: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
-            width: 100%;
-        }
-
-        .checkout-container button:hover {
-            background: #0056b3;
-        }
-
         .clear-cart-button {
             background: #dc3545; /* Red color */
             color: white;
             border: none;
-            padding: 10px;
+            padding: 8px 12px; /* Adjusted button padding */
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;
@@ -172,7 +164,7 @@
             background: #007BFF; /* Keep the same blue color */
             color: white;
             border: none;
-            padding: 10px;
+            padding: 8px 12px; /* Adjusted button padding */
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;

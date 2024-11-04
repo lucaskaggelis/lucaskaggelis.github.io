@@ -208,9 +208,7 @@
         }
 
         .subscribe-button {
-            width: 70px; /* Set your desired width */
-            height: 50px; /* Set your desired height */
-            background-color: #4CAF50; /* Red background */
+            background-color: #4CAF50; /* Green background */
             color: white; /* White text */
             border: none; /* No border */
             border-radius: 5px; /* Rounded corners */
@@ -241,7 +239,7 @@
 <div id="home" class="page">
     <div class="container">
         <h2>Featured Products</h2>
-        <p>When it comes to your fishing and camping needs, choosing the right store can make all the difference in your outdoor experiences. Our fishing and camping store is more than just a retail space; it’s a curated haven for outdoor enthusiasts. We offer an extensive selection of high-quality gear, equipment, and accessories tailored to meet the diverse needs of every adventurer, from novice anglers to seasoned campers. Our knowledgeable and passionate staff are always on hand to offer personalized advice, helping you choose the right items for your activities, while promoting sustainable practices that benefit our natural resources. Shop with us, and discover exclusive promotions, loyalty programs, and top-notch products from trusted brands. Whether you're planning a weekend getaway or a fishing trip of a lifetime, our store is your ultimate destination, ensuring an enjoyable experience as you embrace the great outdoors. Choose us as your trusted partner in adventure!</p>
+        <p>When it comes to your fishing and camping needs, choosing the right store can make all the difference in your outdoor experiences. Our fishing and camping store is more than just a retail space; it’s a curated haven for outdoor enthusiasts. We offer an extensive selection of high-quality gear, equipment, and accessories tailored to meet the diverse needs of every adventurer, from novice anglers to seasoned campers. Our knowledgeable and passionate staff are always on hand to offer personalized advice, helping you choose the right items for your activities, while promoting sustainable practices that benefit our natural resources. Shop with us to discover exclusive promotions, loyalty programs, and top-notch products from trusted brands. Whether you're planning a weekend getaway or a fishing trip of a lifetime, our store is your ultimate destination, ensuring an enjoyable experience as you embrace the great outdoors. Choose us as your trusted partner in adventure!</p>
     </div>
 </div>
 
@@ -538,12 +536,19 @@ function subscribe(event) {
     const name = document.getElementById('sub-name').value;
     const phone = document.getElementById('sub-phone').value;
     const email = document.getElementById('email').value;
+    
+    // Simple validation for email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
     subscribers.push({ name: name, phone: phone, email: email });
     document.getElementById('sub-name').value = '';
     document.getElementById('sub-phone').value = '';
     document.getElementById('email').value = '';
     alert('Subscribed successfully!');
-    
 }
 
 function updateTotalAmount() {

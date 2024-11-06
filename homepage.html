@@ -65,11 +65,11 @@
             background: #007BFF;
             color: white;
             border: none;
-            padding: 8px 12px; /* Adjusted button padding */
+            padding: 8px 12px; 
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;
-            width: auto; /* Set the button width to auto if you want it to fit content */
+            width: auto;
         }
 
         .product button:hover, 
@@ -147,10 +147,10 @@
         }
 
         .clear-cart-button {
-            background: #dc3545; /* Red color */
+            background: #dc3545; 
             color: white;
             border: none;
-            padding: 8px 12px; /* Adjusted button padding */
+            padding: 8px 12px; 
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;
@@ -159,14 +159,14 @@
         }
 
         .clear-cart-button:hover {
-            background: #c82333; /* Darker red color on hover */
+            background: #c82333; 
         }
 
         .checkout-button {
-            background: #007BFF; /* Keep the same blue color */
+            background: #007BFF; 
             color: white;
             border: none;
-            padding: 8px 12px; /* Adjusted button padding */
+            padding: 8px 12px; 
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;
@@ -182,43 +182,37 @@
             margin: 10px 0;
         }
 
-        .subscription-link {
-            color: #007BFF;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
         .subscription-form {
             text-align: center; /* Center all input elements */
         }
 
         .subscription-form input {
             display: block; /* Stack the inputs */
-            margin: 5px auto; /* Center align the elements */
-            width: 20%; /* Adjust width */
-            height: 20px; /* Set height for shorter input fields */
-        }
-
-        .subscription-form input[type="submit"] {
-            width: 60%; /* 60% width for the submit button */
-            height: auto; /* Normal height */
-            padding: 7.5px; /* Adjusted padding */
-            font-size: 0.75em; /* Font size adjustment */
-            transition: width 0.3s, height 0.3s; /* Smooth transition */
+            margin: 10px auto; /* Center align the elements */
+            width: 60%; /* Adjust width */
+            padding: 10px; /* Padding for inputs */
+            border-radius: 5px; /* Rounded corners */
+            border: 1px solid #ccc; /* Border for inputs */
         }
 
         .subscribe-button {
-            background-color: #4CAF50; /* Red background */
-            color: white; /* Black text */
+            cursor: pointer;
+            background-color: #4CAF50; /* Default background */
+            color: white; /* Default text color */
             border: none; /* No border */
             border-radius: 5px; /* Rounded corners */
-            cursor: pointer; /* Pointer on hover */
+            padding: 10px 20px; /* Adjusted padding */
             font-size: 16px; /* Set font size */
-            transition: background-color 0.3s ease; /* Smooth background color transition */
+            transition: background-color 0.3s ease; /* Smooth background transition */
         }
 
         .subscribe-button:hover {
             background-color: #45a049; /* Darker green on hover */
+        }
+
+        .benefits-list {
+            list-style: none; /* Remove bullets from list */
+            padding: 0; /* Remove default padding */
         }
     </style>
 </head>
@@ -369,15 +363,18 @@
         <p>Sign up for our subscriptions and enjoy a <strong>10% discount on all products!</strong></p>
         <form class="subscription-form" onsubmit="subscribe(event)">
             <label for="sub-name">Name:</label>
-            <input type="text" id="sub-name" required>
+            <input type="text" id="sub-name" required placeholder="Your Name">
             <label for="sub-phone">Phone:</label>
-            <input type="tel" id="sub-phone" required>
+            <input type="tel" id="sub-phone" required placeholder="Your Phone">
             <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <input type="submit" value="Subscribe Now" class="subscribe-button" id="subscribeButton">
+            <input type="email" id="email" required placeholder="Your Email">
+            <button type="submit" class="subscribe-button" id="subscribeButton"
+                    style="background-color: #007BFF; color: white; font-size: 18px;">
+                Subscribe Now
+            </button>
         </form>
         <h3>Subscription Benefits:</h3>
-        <ul>
+        <ul class="benefits-list">
             <li>10% off all items</li>
             <li>Exclusive access to new products</li>
             <li>Monthly newsletters with special offers</li>

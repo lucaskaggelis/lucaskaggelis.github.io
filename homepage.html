@@ -183,48 +183,52 @@
         }
 
         .subscription-form {
-            text-align: center; /* Center all input elements */
-            display: flex; /* Makes it flexible */
-            flex-direction: column; /* Vertically Stack Elements */
-            align-items: center; /* Center contents horizontally */
+            text-align: center;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0 auto; /* Center the form */
+            width: 100%; /* Ensure the width covers the available space */
         }
 
         .subscription-form input {
-            display: block; /* Stack the inputs */
-            margin: 10px 0; /* Space between inputs */
+            display: block; 
+            margin: 10px; /* Space between inputs */
             width: 60%; /* Adjust width */
-            padding: 10px; /* Padding for inputs */
-            border-radius: 5px; /* Rounded corners */
-            border: 1px solid #ccc; /* Border for inputs */
+            padding: 10px; 
+            border-radius: 5px; 
+            border: 1px solid #ccc; 
         }
 
         .subscribe-button {
             cursor: pointer;
-            background-color: #007BFF; /* Default background */
-            color: white; /* Default text color */
-            border: none; /* No border */
-            border-radius: 5px; /* Rounded corners */
-            padding: 10px 20px; /* Adjusted padding */
-            font-size: 16px; /* Set font size */
-            transition: background 0.3s; /* Smooth background transition */
+            background-color: #007BFF; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 20px; 
+            font-size: 16px; 
+            transition: background 0.3s; 
+            margin-top: 10px; /* Added top margin */
         }
 
         .subscribe-button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3; 
         }
 
         .benefits-list {
-            text-align: left; /* Align text to the left */
-            list-style: none; /* Remove bullets from list */
-            padding: 0; /* Remove default padding */
+            text-align: center; /* Center the benefits list */
+            list-style: none; 
+            padding: 0; 
+            margin-top: 10px; /* Top margin for separation */
         }
-        
-        /* Checkout page styles */
+
         .subscription-link {
             color: #007BFF;
             text-decoration: underline;
             cursor: pointer;
             margin-top: 10px;
+            text-align: center;
         }
     </style>
 </head>

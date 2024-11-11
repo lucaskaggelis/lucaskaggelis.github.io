@@ -241,7 +241,6 @@
         <a href="#" onclick="showPage('fishing')">Fishing Products</a>
         <a href="#" onclick="showPage('camping')">Camping Products</a>
         <a href="#" onclick="showPage('subscriptions')">Subscriptions</a>
-        <a href="#" onclick="showPage('merch')">Merchandise</a>
         <button onclick="toggleCart()">Cart</button>
     </nav>
 </header>
@@ -250,6 +249,11 @@
     <div class="container">
         <h2>Featured Products</h2>
         <p>When it comes to your fishing and camping needs, choosing the right store can make all the difference in your outdoor experiences. Our fishing and camping store is more than just a retail space; it’s a curated haven for outdoor enthusiasts. We offer an extensive selection of high-quality gear, equipment, and accessories tailored to meet the diverse needs of every adventurer, from novice anglers to seasoned campers. Our knowledgeable and passionate staff are always on hand to offer personalized advice, helping you choose the right items for your activities, while promoting sustainable practices that benefit our natural resources. Shop with us to discover exclusive promotions, loyalty programs, and top-notch products from trusted brands. Whether you're planning a weekend getaway or a fishing trip of a lifetime, our store is your ultimate destination, ensuring an enjoyable experience as you embrace the great outdoors. Choose us as your trusted partner in adventure!</p>
+        
+        <!-- Added contact information here -->
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:info@fishingcampingstore.com">info@fishingcampingstore.com</a></p>
+        <p>Phone: <a href="tel:+11234567890">(123) 456-7890</a></p>
     </div>
 </div>
 
@@ -397,24 +401,6 @@
     </div>
 </div>
 
-<div id="merch" class="page hidden">
-    <div class="container">
-        <h2>Our Merchandise</h2>
-        <div class="product">
-            <img src="https://th.bing.com/th/id/OIP.UhKOCAIM12v2BEDhKiQePQHaHa?rs=1&pid=ImgDetMain" alt="T-shirt">
-            <h3>Fishing & Camping T-Shirt</h3>
-            <p>$20</p>
-            <button onclick="addToCart('Fishing & Camping T-Shirt')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/915W7ZKWlFL._AC_UL1500_.jpg" alt="Cap">
-            <h3>Outdoor Cap</h3>
-            <p>$15</p>
-            <button onclick="addToCart('Outdoor Cap')">Add to Cart</button>
-        </div>
-    </div>
-</div>
-
 <div id="notification"></div>
 <div id="cart">
     <h3>Your Cart</h3>
@@ -469,9 +455,7 @@ function addToCart(productName) {
         'Hiking Backpack': 90,
         'Inflatable Sleeping Pad': 50,
         'Camping Dish Drying Rack': 16,
-        'Portable Hammock': 40,
-        'Fishing & Camping T-Shirt': 20,
-        'Outdoor Cap': 15,
+        'Portable Hammock': 40
     };
     
     const existingProduct = cart.find(item => item.name === productName);
@@ -548,7 +532,7 @@ function subscribe(event) {
     const name = document.getElementById('sub-name').value;
     const phone = document.getElementById('sub-phone').value;
     const email = document.getElementById('email').value;
-    
+
     // Simple validation for email format
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {

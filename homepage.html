@@ -56,9 +56,9 @@
             object-fit: contain; 
         }
 
-        .product button, 
-        .cart button, 
-        .checkout-container button, 
+        .product button,
+        .cart button,
+        .checkout-container button,
         .clear-cart-button,
         .checkout-button,
         .subscribe-button {
@@ -230,6 +230,22 @@
             margin-top: 10px;
             text-align: center;
         }
+
+        .reviews {
+            margin-top: 20px;
+        }
+
+        .review {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .star-rating {
+            color: #FFD700;
+        }
     </style>
 </head>
 <body>
@@ -240,6 +256,7 @@
         <a href="#" onclick="showPage('home')">Home</a>
         <a href="#" onclick="showPage('fishing')">Fishing Products</a>
         <a href="#" onclick="showPage('camping')">Camping Products</a>
+        <a href="#" onclick="showPage('reviews')">Reviews</a>
         <a href="#" onclick="showPage('subscriptions')">Subscriptions</a>
         <button onclick="toggleCart()">Cart</button>
     </nav>
@@ -401,6 +418,30 @@
     </div>
 </div>
 
+<!-- Reviews Page -->
+<div id="reviews" class="page hidden container reviews">
+    <h2>Leave a Review</h2>
+    <form onsubmit="submitReview(event)">
+        <label for="review-name">Your Name:</label>
+        <input type="text" id="review-name" required placeholder="Your Name">
+        <label for="rating">Star Rating:</label>
+        <select id="rating" required>
+            <option value="">Select a rating</option>
+            <option value="5">5 stars</option>
+            <option value="4">4 stars</option>
+            <option value="3">3 stars</option>
+            <option value="2">2 stars</option>
+            <option value="1">1 star</option>
+        </select>
+        <label for="review-comment">Comment:</label>
+        <textarea id="review-comment" required placeholder="Your Review" rows="4"></textarea>
+        <button type="submit">Submit Review</button>
+    </form>
+    
+    <h3>Reviews</h3>
+    <div id="reviewsList"></div>
+</div>
+
 <div id="notification"></div>
 <div id="cart">
     <h3>Your Cart</h3>
@@ -429,6 +470,7 @@
 <script>
 let cart = [];
 let subscribers = [];
+let reviews = [];
 
 function showPage(page) {
     const pages = document.querySelectorAll('.page');
@@ -466,12 +508,53 @@ function addToCart(productName) {
         cart.push({ name: productName, quantity: 1, price: price });
     }
     updateCartDisplay();
+    displayNotification(`${productName} ($${price}) has been added to your cart!`);
+}
+
+function displayNotification(message) {
     const notification = document.getElementById('notification');
-    notification.textContent = `${productName} ($${price}) has been added to your cart!`;
+    notification.textContent = message;
     notification.style.display = 'block';
     setTimeout(() => {
         notification.style.display = 'none';
     }, 3000);
+}
+
+function submitReview(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('review-name').value;
+    const rating = document.getElementById('rating').value;
+    const comment = document.getElementById('review-comment').value;
+    
+    reviews.push({ name, rating, comment });
+    
+    document.getElementById('review-name').value = '';
+    document.getElementById('rating').value = '';
+    document.getElementById('review-comment').value = '';
+    
+    displayReviews();
+}
+
+function displayReviews() {
+    const reviewsList = document.getElementById('reviewsList');
+    reviewsList.innerHTML = '';
+
+    if (reviews.length === 0) {
+        reviewsList.innerHTML = '<p>No reviews yet.</p>';
+        return;
+    }
+
+    reviews.forEach(review => {
+        const reviewDiv = document.createElement('div');
+        reviewDiv.className = 'review';
+        reviewDiv.innerHTML = `
+            <strong>${review.name}</strong>
+            <div class="star-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+            <p>${review.comment}</p>
+        `;
+        reviewsList.appendChild(reviewDiv);
+    });
 }
 
 function updateCartDisplay() {
